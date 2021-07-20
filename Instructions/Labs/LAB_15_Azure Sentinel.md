@@ -1,4 +1,4 @@
----
+﻿---
 lab:
     title: '15 - Azure Sentinel'
     module: '모듈 04 - 보안 작업 관리'
@@ -50,9 +50,9 @@ Azure Sentinel 기반 위협 탐지 및 응답의 개념 증명을 만들라는 
 
 1. Azure Portal에서 페이지 상단에 있는 **리소스, 서비스 및 문서 검색** 텍스트 상자에 **Azure Sentinel**을 입력하고 **Enter** 키를 누릅니다.
 
-1. **Azure Sentinel** 블레이드에서 **작업 영역 연결**을 클릭합니다.
+1. **Azure Sentinel** 블레이드에서 **+ 새로 만들기**를 클릭합니다.
 
-1. **Azure Sentinel에 추가할 작업 영역 선택** 블레이드에서, Azure Monitor 랩에서 만든 Log Analytics 작업 영역을 선택하고 **추가**를 클릭합니다.
+1. **작업 영역에 Azure Sentinel 추가** 블레이드에서, Azure Monitor 랩에서 만든 Log Analytics 작업 영역을 선택하고 **추가**를 클릭합니다.
 
     >**참고**: Azure Sentinel에는 작업 영역에 대한 매우 구체적인 요구 사항이 있습니다. 예를 들어 Azure Security Center에 의해 만들어진 작업 영역은 사용할 수 없습니다. [빠른 시작](https://docs.microsoft.com/ko-kr/azure/sentinel/quickstart-onboard)에서 더 알아보기[ Azure Sentinel 등록](https://docs.microsoft.com/ko-kr/azure/sentinel/quickstart-onboard)
 	
@@ -86,7 +86,7 @@ Azure Sentinel 기반 위협 탐지 및 응답의 개념 증명을 만들라는 
 
     >**참고**: 만들 수 있는 규칙 유형을 검토합니다. 각 규칙은 특정 데이터 원본과 연결됩니다.
 
-1. 규칙 목록에서 검색 창 양식에 **의심스러움**을 입력한 후 **Azure 활동** 데이터 원본과 연결된 **의심스러운 리소스 작성 또는 배포 수** 항목을 클릭합니다. 그런 다음 규칙 템플릿 속성이 표시된 창에서 필요하면 페이지 오른쪽으로 스크롤하여 **규칙 만들기**를 클릭합니다.
+1. 규칙 템플릿 목록에서 검색 창 양식에 **의심스러움**을 입력한 후 **Azure 활동** 데이터 원본과 연결된 **의심스러운 리소스 작성 또는 배포 수** 항목을 클릭합니다. 그런 다음 규칙 템플릿 속성이 표시된 창에서 필요하면 페이지 오른쪽으로 스크롤하여 **규칙 만들기**를 클릭합니다.
 
     >**참고**: 이 규칙은 중간 심각도를 가지고 있습니다. 
 
@@ -148,7 +148,9 @@ Azure Sentinel 기반 위협 탐지 및 응답의 개념 증명을 만들라는 
 
 1. 메시지가 표시되면 이 랩에서 사용하고 있는 Azure 구독에 대한 Owner 또는 Contributor 역할이 포함된 사용자 계정을 사용하여 로그인합니다.
 
-1. 나머지 **연결** 각각에 대해 이전 세 단계를 반복합니다.
+1. 두 번째 **연결** 단계를 클릭하고, 이전 단계에서 만든 연결을 나타내는 두 번째 항목을 연결 목록에서 선택합니다.
+
+1. 나머지 두 **연결** 단계에 대해 이전 단계를 반복합니다.
 
     >**참고**: 모든 단계에 경고가 표시되지 않는지 확인합니다.
 
@@ -175,8 +177,8 @@ Azure Sentinel 기반 위협 탐지 및 응답의 개념 증명을 만들라는 
 
     ```
     AzureActivity
-     | where ResourceProviderValue == "Microsoft.Security" 
-     | where OperationNameValue == "Microsoft.Security/locations/jitNetworkAccessPolicies/delete" 
+     | where ResourceProviderValue =~ "Microsoft.Security" 
+     | where OperationNameValue =~ "Microsoft.Security/locations/jitNetworkAccessPolicies/delete" 
     ```
 
     >**참고**: 이 규칙은 Just-In-Time VM 액세스 정책의 제거를 식별합니다.
@@ -190,7 +192,7 @@ Azure Sentinel 기반 위협 탐지 및 응답의 개념 증명을 만들라는 
 
 1. **분석 규칙 마법사 - 새 규칙 만들기**블레이드의 **인시던트 설정** 탭에서 기본 설정을 수락하고 **다음:**을 클릭합니다**자동 응답 >** 을 클릭합니다. 
 
-1. **분석 규칙 마법사 - 새 규칙 만들기** 블레이드의 **자동 응답** 탭에서 **변경-인시던트-심각도** 확인란을 선택하고 **다음:**을 클릭합니다** 검토 >**. 
+1. **분석 규칙 마법사 - 새 규칙 만들기** 블레이드의 **자동 응답** 탭에 있는 **경로 자동화** 드롭다운 목록에서 **Change-Incident-Severity** 항목 옆의 체크박스를 선택하고 **다음:**** 검토 >**. 
 
 1. **분석 규칙 마법사 - 새 규칙 만들기** 블레이드의 **검토 및 만들기** 탭에서 **만들기**를 클릭합니다.
 
@@ -208,7 +210,7 @@ Azure Sentinel 기반 위협 탐지 및 응답의 개념 증명을 만들라는 
 
 1. Azure Portal에서 페이지 상단에 있는 **리소르, 서비스 및 문서 검색** 텍스트 상자에서 **활동 로그**를 입력하고 **Enter** 키를 누릅니다.
 
-1. **활동 로그** 블레이드에서 **JIT 네트워크 액세스 정책 삭제** 항목을 참고합니다. 
+1. **활동 로그** 블레이드로 이동하고 **JIT 네트워크 액세스 정책 삭제** 항목을 메모합니다. 
 
     >**참고**: 이 작업은 표시되기까지 1분이 소요될 수 있습니다. 
 

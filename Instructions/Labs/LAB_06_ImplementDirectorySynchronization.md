@@ -1,4 +1,4 @@
----
+﻿---
 lab:
     title: '06 - 디렉터리 동기화 구현'
     module: '모듈 01 - ID 및 액세스 관리'
@@ -66,7 +66,7 @@ Azure Active Directory(Azure AD) 테넌트와 온-프레미스 AD DS(Active Dire
 
 이 작업에서는 Active Directory 도메인 컨트롤러를 호스팅하는 Azure VM을 배포합니다.
 
-1. 동일한 브라우저 창에서 다른 브라우저 탭을 열고 [https://github.com/Azure/azure-quickstart-templates/tree/master/active-directory-new-domain](https://github.com/Azure/azure-quickstart-templates/tree/master/active-directory-new-domain)로 이동합니다. 
+1. 동일한 브라우저 창에서 다른 브라우저 탭을 열고 [https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/active-directory/active-directory-new-domain](`https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/active-directory/active-directory-new-domain`)으로 이동합니다. 
 
 1. **새 Windows VM 만들기 및 새 AD 포리스트, 도메인 및 DC 만들기** 페이지에서 **Azure에 배포**를 클릭합니다. 이렇게 하면 Azure Portal의 **새 AD 포리스트로 Azure VM 만들기** 블레이드로 브라우저가 자동으로 리디렉션됩니다.
 
@@ -140,7 +140,7 @@ Azure Active Directory(Azure AD) 테넌트와 온-프레미스 AD DS(Active Dire
 
     >**참고**: **AdatumSync** 항목이 **디렉터리 + 구독** 필터 목록에 나타나지 않으면 브라우저 창을 새로 고침합니다.
 
-1. **AdatumSync** 블레이드의 **관리** 섹션에서 **사용자 지정 도메인 이름**을 클릭합니다.
+1. **AdatumSync \| Azure Active Directory** 블레이드의 **관리** 섹션에서 **사용자 지정 도메인 이름**을 클릭합니다.
 
 1. **AdatumSync \| 사용자 지정 도메인 이름** 블레이드에서 **+ 사용자 지정 도메인 추가**를 클릭합니다.
 
@@ -225,6 +225,8 @@ Azure Active Directory(Azure AD) 테넌트와 온-프레미스 AD DS(Active Dire
 
 1. **Internet Explorer 강화된 보안 구성** 대화 상자에서 두 옵션을 **해제**로 설정하고 **확인**을 클릭합니다.
 
+1. Internet Explorer를 시작하고, [https://www.microsoft.com/ko-kr/edge/business/download](`https://www.microsoft.com/en-us/edge/business/download`)로 이동하고, Microsoft Edge 설치 바이너리를 다운로드하고, 설치를 실행하고, 웹 브라우저를 기본 설정으로 구성합니다.
+
 1. **서버 관리자**에서 **도구**를 클릭하고 드롭다운 메뉴에서 **Active Directory 관리 센터**를 클릭합니다.
 
 1. **Active Directory 관리 센터**에서 **adatum(로컬)** 을 클릭하고 **작업** 창에서 **신규**를 클릭한 후 계단식 메뉴에서 **조직 구성 단위**를 클릭합니다.
@@ -305,7 +307,7 @@ Azure Active Directory(Azure AD) 테넌트와 온-프레미스 AD DS(Active Dire
 
 이 작업에서는 디렉터리 동기화가 작동하는지 확인합니다. 
 
-1. Azure Portal을 표시하는 Internet Explorer 창의 **adVM**에 대한 원격 데스크톱 세션에서 Adatum Lab Azure AD 테넌트의 **사용자 - 모든 사용자** 블레이드로 이동합니다.
+1. **adVM** 원격 데스크톱 세션 내에 있는 Azure Portal을 표시하는 Microsoft Edge 창에서 Adatum Lab Azure AD 테넌트의 **사용자 - 모든 사용자** 블레이드로 이동합니다.
 
 1. **사용자 \| 모든 사용자** 블레이드에서 사용자 개체 목록에 **aduser1** 계정이 포함되어 있음을 확인합니다. 
 
@@ -331,7 +333,7 @@ Azure Active Directory(Azure AD) 테넌트와 온-프레미스 AD DS(Active Dire
     Start-ADSyncSyncCycle -PolicyType Delta
     ```
 
-1. **aduser1 \| 프로필** 블레이드를 표시하는 Internet Explorer 창으로 전환하고 페이지를 새로 고친 후 **부서** 속성이 **영업**으로 설정되어 있음을 유의하십시오.
+1. **aduser1 \| 프로필** 블레이드를 표시하는 Microsoft Edge 창으로 전환한 다음, 페이지를 새로 고치고 **부서** 속성이 **영업**으로 설정된 것을 확인합니다.
 
     >**참고**: **부서** 특성이 설정되지 않은 상태로 유지되면 몇 분 동안 기다렸다가 페이지를 다시 새로 고침하세요.
 
