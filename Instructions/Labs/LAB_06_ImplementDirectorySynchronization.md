@@ -52,13 +52,13 @@ Azure Active Directory(Azure AD) 테넌트와 온-프레미스 AD DS(Active Dire
     Test-AzDnsAvailability -DomainNameLabel <custom-label> -Location '<location>'
     ```
 
-    >**참고**: '<custom-label>' 자리 표시자를 전역에서 고유할 가능성이 높은 유효한 DNS 이름으로 바꿉니다. '<location>' 자리 표시자를 이 랩에서 사용할 Active Directory 도메인 컨트롤러를 호스팅하는 Azure VM을 배포하려는 영역의 이름으로 바꿉니다.
+    >**참고**: `<custom-label>` 자리 표시자를 전역에서 고유할 가능성이 높은 유효한 DNS 이름으로 바꿉니다. `<location>` 자리 표시자를 이 랩에서 사용할 Active Directory 도메인 컨트롤러를 호스팅하는 Azure VM을 배포하려는 영역의 이름으로 바꿉니다.
 
     >**참고**: Azure VM을 프로비전할 수 있는 Azure 지역을 확인하려면 [**https://azure.microsoft.com/ko-kr/regions/offers/**](https://azure.microsoft.com/ko-kr/regions/offers/)를 참조하세요.
 
-1. 이 명령이 **True**를 반환하는지 확인합니다. True가 반환되지 않으면 **True**가 반환될 때까지 '<custom-label>'의 다른 값을 사용해 같은 명령을 다시 실행합니다.
+1. 이 명령이 **True**를 반환하는지 확인합니다. True가 반환되지 않으면 **True**가 반환될 때까지 `<custom-label>`의 다른 값을 사용해 같은 명령을 다시 실행합니다.
 
-1. 성공적인 결과가 반환된 '<custom-label>'의 값을 레코드합니다. 다음 작업에 필요합니다.
+1. 성공적인 결과가 반환된 `<custom-label>`의 값을 레코드합니다. 다음 작업에 필요합니다.
 
 1. Cloud Shell을 닫습니다.
 
@@ -179,7 +179,7 @@ Azure Active Directory(Azure AD) 테넌트와 온-프레미스 AD DS(Active Dire
 
 1. Azure Portal로 이동하고 **syncadmin** 사용자 계정을 사용하여 로그인합니다. 메시지가 표시되면 이 작업에서 이전에 기록한 암호를 **Pa55w.rd1234**로 변경합니다.
 
-    >**참고**: 로그인하려면 이 작업의 앞부분에서 기록했던 AzureAD 테넌트 DNS 도메인 이름을 포함하여 **syncadmin** 사용자 계정의 정규화된 이름을 제공해야 합니다. 이 사용자 이름은 syncadmin@`<your_tenant_name>`.onmicrosoft.com 형식이며, 여기서 '<your_tenant_name>'은 고유한 Azure AD 테넌트 이름을 나타내는 자리 표시자입니다. 
+    >**참고**: 로그인하려면 이 작업의 앞부분에서 기록했던 AzureAD 테넌트 DNS 도메인 이름을 포함하여 **syncadmin** 사용자 계정의 정규화된 이름을 제공해야 합니다. 이 사용자 이름은 syncadmin@`<your_tenant_name>`.onmicrosoft.com 형식이며, 여기서 `<your_tenant_name>`은 고유한 Azure AD 테넌트 이름을 나타내는 자리 표시자입니다. 
 
 1. **syncadmin**으로 로그아웃하고 InPrivate 브라우저 창을 닫습니다.
 
@@ -372,7 +372,7 @@ Azure Active Directory(Azure AD) 테넌트와 온-프레미스 AD DS(Active Dire
     (Get-MSOLCompanyInformation).DirectorySynchronizationEnabled
     ```
 
-    >**참고**: 결과는 'False'이어야 합니다. 그렇지 않은 경우 1분 정도 기다렸다가 명령을 다시 실행합니다.
+    >**참고**: 결과는 `False`이어야 합니다. 그렇지 않은 경우 1분 정도 기다렸다가 명령을 다시 실행합니다.
 
     >**참고**: 다음으로 Azure 리소스를 제거
 
